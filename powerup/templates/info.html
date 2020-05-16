@@ -1,0 +1,87 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/7cb165d74b.js" crossorigin="anonymous"></script>
+    <title>RazerPay</title>
+  </head>
+  
+  <style>
+    .btn {
+        width: 100%;
+        font-size: 26px;
+        font-family: 'Calibri';
+        border-radius: 10px;
+        background-color: #4AD430;
+        border-color: #4AD430;
+        margin-bottom: 20px;
+    }
+
+    a {
+        color: white;
+    }
+
+    .p {
+        font-family: 'Calibri';
+    }
+
+    .inner-container {
+        width:90%;
+    }
+
+    .top-container {
+        width:90%;
+        margin-top: 15px;
+        margin-bottom: 20px;
+        font-size: 18px;
+    }
+
+    .has-gradient {
+        background: linear-gradient(#44D62D,white 20%, white);
+    }
+
+  </style>
+
+  <body>
+    <div class="container-fluid has-gradient">
+        <div class="row justify-content-center">
+            <div class='top-container'>
+                <a href="/" class="left-arrow"><i class="fa fa-2x fa-arrow-left" aria-hidden="true"></i></a>
+                <strong>#RazerYouthBank</strong>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="inner-container">
+                <img class="img-fluid" src="{% static 'img/loginImage.png' %}">
+                <br>
+                <br>
+                <p>Sick of getting high interest rates for your loans or credit card just because you're young and banks don't know what they're doing?
+                <br>
+                <br>
+                As fellow gamers, we here at the #RazerYouthBank know that you're more than that.
+                <br>
+                <br>
+                Connect your game accounts and let us get to know you. As you play better and better in your games, you'll get better access to financial services as well.
+                <br>
+                <br>
+                <br> 
+                </p>   
+                <button type="button" class="btn btn-primary"><a href = "/options">SIGN IN</a></button>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>

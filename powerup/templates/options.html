@@ -1,0 +1,108 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Razer Pay</title>
+  </head>
+  <style>
+      .nav_li {
+        width: 100%;
+    }
+
+      .icon_img {
+        height: 40px;
+    }
+
+      .has-gradient {
+        background: linear-gradient(#44D62D,white 20%, white);
+    }
+
+      .list-group-item{
+          font-family: "Calibri";
+          font-size: 20px;
+      }
+
+      .last-item-dota{
+          margin-left:187px;
+          color: black;
+      }
+      
+      .last-item-LOL{
+          margin-left:91px;
+          color: black;
+      }
+
+      .last-item-fortnite{
+          margin-left:175px;
+          color: black;
+      }
+
+      .last-item-PUBG{
+          margin-left:194px;
+          color: black;
+      }
+
+      .list-group-item.active {
+          background-color: white;
+          color: black;
+          border-color: white;
+          font-family: "Calibri";
+          margin-top: 35px;
+          padding-bottom: 8px;
+          padding-top: 8px;
+      }
+
+      .link-box {
+          font-size: 17px;
+          background-color: grey;
+          color: white;
+      }
+
+  </style>
+  <body>
+    <div class="container-fluid has-gradient">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action active top-div">Link your game accounts</a>
+                    <div class="list-group-item link-box">
+                        <small>LIST OF ACCOUNTS TO LINK</small>
+                    </div>
+                    <div class="list-group-item justify-content-between">
+                        <img class="icon_img" src="{% static 'img/dotaLogo.png' %}">               Dota 2
+                        <a class="last-item-dota" href="/login/">></a>
+                    </div> 
+                    <div class="list-group-item justify-content-between">
+                        <img class="icon_img" src="{% static 'img/LOLLogo.png' %}">                League of Legends
+                        <a class="last-item-LOL" href="#">></a>
+                    </div> 
+                    <div class="list-group-item justify-content-between">
+                        <img class="icon_img" src="{% static 'img/FortniteLogo.png' %}">               Fortnite
+                        <a class="last-item-fortnite" href="#">></a>
+                    </div> 
+                    <div class="list-group-item justify-content-between">
+                        <img class="icon_img" src="{% static 'img/PUBGLogo.png' %}">               PUBG
+                        <a class="last-item-PUBG" href="#">></a>
+                    </div> 
+                    <div class="list-group-item justify-content-between">
+                        Skip
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>

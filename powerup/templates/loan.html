@@ -1,0 +1,92 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+    
+    <title>Razer Pay</title>
+  </head>
+  <style>
+      .nav_li {
+        width: 100%;
+    }
+
+      .icon_img {
+        height: 40px;
+    }
+
+      .has-gradient {
+        background: linear-gradient(#44D62D,white 20%, white);
+    }
+
+      .list-group-item{
+          font-family: "Calibri";
+          font-size: 20px;
+      }
+            .list-group-item.active {
+          background-color: white;
+          color: black;
+          border-color: white;
+          font-family: "Calibri";
+          margin-top: 35px;
+          padding-bottom: 8px;
+          padding-top: 8px;
+      }
+      .link-box {
+          font-size: 17px;
+          background-color: grey;
+          color: white;
+      }
+  </style>
+  <body>
+    <div class="container-fluid has-gradient">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active top-div">Welcome John</a>
+                    <div class="list-group-item link-box">
+                        <small>your rating is {{ the_score }} </small>
+                    </div>
+                    <br>
+                    {% for account in the_data %}
+                        <p><label><b>loanID</b></label> {{ account.loanID }}</p>
+                        <p><label><b>interest Rate</b></label> {{ account.interestRate }}</p>
+                        <p><label><b>loan Name</b></label> {{ account.loanName }}</p>
+                        <p><label><b>principal Collected</b></label></p>
+                        <p>-------------------------------------------</p>
+                    {% endfor %}
+                
+                    <form class="form" action="/create_loan/" method="POST">
+                        {% csrf_token %}
+                        {{ the_form | crispy}}
+                        <input type="text" class="form-control" >
+                        <input class="btn btn-outline-primary" type="submit" value="Get Loan">
+                        </form>
+
+                </div>
+                <br>
+                <div class="list-group-item justify-content-between">
+                        <img class="icon_img" src="{% static 'img/dotaLogo.png' %}">              Back
+                        <a class="last-item-dota" href="/main/">></a>
+                    </div>  
+                
+            </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'CHANGE_ME'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool( os.environ.get('DJANGO_DEBUG', False) )
+DEBUG =True # bool( os.environ.get('DJANGO_DEBUG', False) )
 
 ALLOWED_HOSTS = ['*']
 
@@ -36,7 +36,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'helloworld',
+    'crispy_forms',
+    'core',
+    'powerup',
 ]
 
 MIDDLEWARE = [
@@ -74,10 +76,14 @@ WSGI_APPLICATION = 'ebdjango.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+   'default': {
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': os.environ.get('RDS_DB_NAME'),
+       'USER': os.environ.get('RDS_USERNAME'),
+       'PASSWORD': os.environ.get('RDS_PASSWORD'),
+       'HOST': os.environ.get('RDS_HOSTNAME'),
+       'PORT': os.environ.get('RDS_PORT'),
+   }
 }
 
 
@@ -119,3 +125,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = 'static'
+
+#crispy form configuration
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

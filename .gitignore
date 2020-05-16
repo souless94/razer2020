@@ -1,0 +1,7 @@
+core/migrations/__pycache__/
+core/__pycache__/
+ebdjango/__pycache__/
+helloworld/__pycache__/
+helloworld/migrations/__pycache__/
+powerup/__pycache__/
+powerup/migrations/__pycache__/
