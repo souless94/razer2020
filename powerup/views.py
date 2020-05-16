@@ -51,7 +51,7 @@ def loginView(request):
 def mainView(request):
     youth_user_data = YouthBankUser.objects.filter(user=request.user).values('clientID')
     clientID= youth_user_data[0]['clientID']
-    context = {'error':clientID}
+    context = {'clientID':clientID}
     return render(request, 'mainpage.html',context=context)
 
 
