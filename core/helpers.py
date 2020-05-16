@@ -55,7 +55,7 @@ def create_client():
         clientID = clientID['client']['encodedKey']
         assigned_branchkey = json.loads(response.text.encode('utf8'))['client']['assignedBranchKey']
         return {'clientID': str(clientID), 'assigned_branchkey': str(assigned_branchkey)}
-    return {'clientID': 'none', 'assigned_branchkey': 'none'}
+    return {'clientID': clientID, 'assigned_branchkey': 'none'}
 
 
 def create_current_account(clientID):

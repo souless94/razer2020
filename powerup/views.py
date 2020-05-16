@@ -36,6 +36,7 @@ def loginView(request):
             user = form.get_user()
             login(request, user)
             client_user = helpers.create_client()
+            
             user = YouthBankUser.objects.create(
                 user=user, clientID=client_user['clientID'], assigned_branchkey=client_user['assigned_branchkey'])
             user.save()
@@ -48,7 +49,10 @@ def loginView(request):
 @login_required(login_url='/login/')
 @never_cache
 def mainView(request):
-    return render(request, 'mainpage.html')
+    youth_user_data = YouthBankUser.objects.filter(user=request.user).values('clientID')
+    clientID= youth_user_data[0]['clientID']
+    context = {'error':clientID}
+    return render(request, 'mainpage.html',context=context)
 
 
 @login_required(login_url='/login/')
