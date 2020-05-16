@@ -5,3 +5,4 @@ helloworld/__pycache__/
 helloworld/migrations/__pycache__/
 powerup/__pycache__/
 powerup/migrations/__pycache__/
+.vscode/settings.json

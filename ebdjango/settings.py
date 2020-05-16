@@ -79,9 +79,9 @@ DATABASES = {
    'default': {
        'ENGINE': 'django.db.backends.postgresql',
        'NAME': 'postgres',
-       'USER': os.environ.get('RDS_USER'),
+       'USER': 'postgres',
        'PASSWORD': os.environ.get('RDS_PASSWORD'),
-       'HOST': os.environ.get('RDS_HOST'),
+       'HOST': 'database-1.cpbjjkwqqkhg.ap-southeast-1.rds.amazonaws.com',
        'PORT': '5432',
    }
 }
