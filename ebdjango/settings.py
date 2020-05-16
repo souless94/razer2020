@@ -78,10 +78,10 @@ WSGI_APPLICATION = 'ebdjango.wsgi.application'
 DATABASES = {
    'default': {
        'ENGINE': 'django.db.backends.postgresql',
-       'NAME': os.environ.get('RDS_DB_NAME'),
-       'USER': os.environ.get('RDS_USERNAME'),
+       'NAME': 'razer',
+       'USER': os.environ.get('RDS_USER'),
        'PASSWORD': os.environ.get('RDS_PASSWORD'),
-       'HOST': os.environ.get('RDS_HOSTNAME'),
+       'HOST': os.environ.get('RDS_HOST'),
        'PORT': '5432',
    }
 }
