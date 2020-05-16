@@ -12,10 +12,10 @@ def create_client():
     url = "https://razerhackathon.sandbox.mambu.com/api/clients"
     payload = {
         "client": {
-            "firstName": "Tim",
-            "lastName": "Pereira",
+            "firstName": "Celeste",
+            "lastName": "Goh",
             "preferredLanguage": "ENGLISH",
-            "notes": "Enjoys playing turn-based tactics",
+            "notes": "Enjoys playing RPG",
             "assignedBranchKey": "8a8e878e71c7a4d70171ca62fe0f1244"
         },
         "idDocuments": [
@@ -24,7 +24,7 @@ def create_client():
                 "issuingAuthority": "Immigration Authority of Singapore",
                 "documentType": "NRIC/Passport Number",
                 "validUntil": "2021-09-12",
-                "documentId": "S9814234A"
+                "documentId": "S9812345A"
             }
         ],
         "addresses": [],
