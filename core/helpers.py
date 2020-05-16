@@ -12,10 +12,10 @@ def create_client():
     url = "https://razerhackathon.sandbox.mambu.com/api/clients"
     payload = {
         "client": {
-            "firstName": "Celeste",
-            "lastName": "Goh",
+            "firstName": "Tim",
+            "lastName": "Pereira",
             "preferredLanguage": "ENGLISH",
-            "notes": "Enjoys playing RPG",
+            "notes": "Enjoys playing turn-based tactics",
             "assignedBranchKey": "8a8e878e71c7a4d70171ca62fe0f1244"
         },
         "idDocuments": [
@@ -24,7 +24,7 @@ def create_client():
                 "issuingAuthority": "Immigration Authority of Singapore",
                 "documentType": "NRIC/Passport Number",
                 "validUntil": "2021-09-12",
-                "documentId": "S9812345A"
+                "documentId": "S98142334A"
             }
         ],
         "addresses": [],
@@ -143,7 +143,8 @@ def create_loan_account(clientID,assigned_branchkey,params):
 def get_meta_score():
     jackie = {"dota2": "122272960",
           "pubg": "WackyJacky101",
-          "lol": "XofAEbbZ2in_MtKIeX-mvDj1HjG4QG8US6t7jF_PqtXBxWg"
+          "lol": "XofAEbbZ2in_MtKIeX-mvDj1HjG4QG8US6t7jF_PqtXBxWg",
+          "fortnite": "4735ce9132924caf8a5b17789b40f79c"
           }
     return score_generator(jackie)['metascore']
 

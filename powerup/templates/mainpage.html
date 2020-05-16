@@ -22,8 +22,9 @@
     }
 
       .icon_img {
-        height: 40px;
+        height: 100px;
         margin-left: 26%;
+        padding-bottom: 20px;
     }
 
       .has-gradient {
@@ -60,48 +61,50 @@
         margin-right: 4%;
       }
       .current-text{
-        margin-left:23%;
+        margin-left:10%;
       }
       .loan-text{
-        margin-left:27%;
+        margin-left:10%;
       }
       .building-text {
         margin-left:22%;
       }
+
   </style>
   <body>
     <div class="container-fluid has-gradient">
         <div class="row">
             <div class="col-md-12">
                 <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action active top-div">Welcome John</a>
+                <a href="#" class="list-group-item list-group-item-action active top-div">Welcome Tim</a>
                     <div class="list-group-item link-box">
-                        <small>What would you like to do today </small>
-                        <small>clientID : {{ clientID }}</small>
+                        <h4>What would you like to do today?</h4>
+                        
+                        <small>clientID: {{ clientID }}</small>
                     </div>
                     <br>
                 </div>
                 <div class="row">
                 <div class="current_account card">
                   <div class="card-body">
-                  <a class="last-item-dota" href="/current/"><img class="icon_img justify-content-center" src="{% static 'img/dotaLogo.png' %}"><p class="current-text">Current account</p></a>
+                  <a class="last-item-dota" href="/current/"><img class="icon_img justify-content-center" src="{% static 'img/safe-box.png' %}"><br><p class="current-text">Create Current Account</p></a>
                 </div>
               </div>
               <div class="loan_short_account card">
                   <div class="card-body">
-                  <a class="last-item-dota" href="/loan/"><img class="icon_img justify-content-center" src="{% static 'img/dotaLogo.png' %}"><p class="loan-text">Loans</p></a>
+                  <a class="last-item-dota" href="/loan/"><img class="icon_img justify-content-center" src="{% static 'img/shorttermloan.png' %}"><p class="loan-text">Get Short-term Loan</p></a>
                 </div>
               </div>
               </div>
               <div class="row">
                 <div class="current_account card">
                   <div class="card-body">
-                  <a class="last-item-dota" disabled><img class="icon_img justify-content-center" src="{% static 'img/dotaLogo.png' %}"><p class="building-text">long term loan</p></a>
+                  <a class="last-item-dota" disabled><img class="icon_img justify-content-center" src="{% static 'img/longtermloan.png' %}"><p class="building-text">Get Long-term Loan</p></a>
                 </div>
               </div>
               <div class="loan_short_account card">
                   <div class="card-body">
-                  <a class="last-item-dota" disabled><img class="icon_img justify-content-center" src="{% static 'img/dotaLogo.png' %}"><p class="building-text">endowment plan</p></a>
+                  <a class="last-item-dota" disabled><img class="icon_img justify-content-center" src="{% static 'img/growth.png' %}"><p class="building-text">Get Endowment Plan</p></a>
                 </div>
               </div>
               </div>

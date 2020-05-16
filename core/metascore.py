@@ -33,6 +33,15 @@ def getLOLMatchTiming(username):
         match_dates.append(datetime.fromtimestamp(match['timestamp']/1000))
     return match_dates
 
+# get Fortnite match timings
+def getFortniteMatchTiming(username):
+    match_dates = []
+    headers = {"Authorization": fortnite_key}
+    res = requests.get("https://fortniteapi.io/matches?account=" + str(username), headers=headers)
+    for match in res.json()['matches']:
+        match_dates.append(match['date'])
+    return match_dates
+
 # get Dota2 match timings
 def getDota2MatchTiming(username):
     match_dates = []
@@ -104,6 +113,11 @@ def score_generator(dictionary_of_games):
             game_number += 2
         elif game.lower() == 'lol':
             lol_score = generateMatchPatternScore(getLOLMatchTiming(username))
+            metascore['metascore'] += lol_score
+            game_number += 1
+        elif game.lower() == 'fortnite':
+            fortnite_score = generateMatchPatternScore(getFortniteMatchTiming(username))
+            metascore['metascore'] += fortnite_score
             game_number += 1
     if game_number == 0:
         pass
