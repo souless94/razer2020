@@ -11,4 +11,4 @@ class LoanAccountForm(ModelForm):
     class Meta:
         model = LoanAccount
         fields = '__all__'
-        exclude =('user',)
+        exclude =('user','loanID')

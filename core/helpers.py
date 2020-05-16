@@ -8,9 +8,9 @@ baseUrl = 'http://razerhackathon2app.eba-3mgtrpdc.ap-southeast-1.elasticbeanstal
 
 
 
-def create_client(**payload):
+def create_client():
     url = "https://razerhackathon.sandbox.mambu.com/api/clients"
-    defaults = {
+    payload = {
         "client": {
             "firstName": "Celeste",
             "lastName": "Goh",
@@ -41,7 +41,6 @@ def create_client(**payload):
             }
         ]
     }
-    payload.update(defaults)
     headers = {
         'Content-Type': 'application/json',
         'Authorization': 'Basic VGVhbTU5OnBhc3M3MUE5OTUxQkY=',
@@ -50,16 +49,18 @@ def create_client(**payload):
     }
     response = requests.request(
         "POST", url, headers=headers, data=json.dumps(payload))
-    clientID = json.loads(response.text.encode('utf8'))['client']['encodedKey']
-    assigned_branchkey = json.loads(response.text.encode('utf8'))[
-        'client']['assignedBranchKey']
-    return {'clientID': str(clientID), 'assigned_branchkey': str(assigned_branchkey)}
+    clientID = json.loads(response.text.encode('utf8'))
+    if 'client' in clientID.keys() :
+        clientID = clientID['client']['encodedKey']
+        assigned_branchkey = json.loads(response.text.encode('utf8'))['client']['assignedBranchKey']
+        return {'clientID': str(clientID), 'assigned_branchkey': str(assigned_branchkey)}
+    return {'clientID': 'none', 'assigned_branchkey': 'none'}
 
 
-def create_current_account(clientID,**payload):
+def create_current_account(clientID):
     url = "https://razerhackathon.sandbox.mambu.com/api/savings"
 
-    defaults = {
+    payload = {
     "savingsAccount": {
         "name": "Digital Account",
         "accountHolderType": "CLIENT",
@@ -79,7 +80,6 @@ def create_current_account(clientID,**payload):
     }
 
     }
-    payload.update(defaults)
     headers = {
         'Content-Type': 'application/json',
         'Authorization': 'Basic VGVhbTU5OnBhc3M3MUE5OTUxQkY=',
@@ -89,21 +89,23 @@ def create_current_account(clientID,**payload):
 
     response = requests.request(
         "POST", url, headers=headers, data=json.dumps(payload))
-    accountID = json.loads(response.text.encode('utf8'))['savingsAccount']['encodedKey']
-    return {'accountID':str(accountID)}
+    accountID = json.loads(response.text.encode('utf8'))
+    if "savingsAccount" in accountID.keys():
+        accountID = accountID['savingsAccount']['encodedKey']
+        return {'accountID':str(accountID)}
+    return {'accountID':'None'}
 
-def create_loan_account(clientID,assigned_branchkey,**payload):
+def create_loan_account(clientID,assigned_branchkey,params):
     url = "https://razerhackathon.sandbox.mambu.com/api/loans"
-
-    defaults= {
+    payload= {
     "loanAccount": {
         "accountHolderType": "CLIENT",
         "accountHolderKey": clientID,
         "productTypeKey": "8a8e867271bd280c0171bf768cc31a89",
         "assignedBranchKey": assigned_branchkey,
-        "loanName": "Student Loan",
-        "loanAmount": 1010,
-        "interestRate": "2",
+        "loanName": str(params['loanName']),
+        "loanAmount": float(params['loanAmount']),
+        "interestRate": str(params['interestRate']),
         "arrearsTolerancePeriod": "0",
         "gracePeriod": "0",
         "repaymentInstallments": "10",
@@ -120,7 +122,7 @@ def create_loan_account(clientID,assigned_branchkey,**payload):
         }
     }
     }
-    payload.update(defaults)
+    print(payload)
     headers = {
     'Content-Type': 'application/json',
     'Authorization': 'Basic VGVhbTU5OnBhc3M3MUE5OTUxQkY=',
@@ -130,9 +132,12 @@ def create_loan_account(clientID,assigned_branchkey,**payload):
 
     response = requests.request(
         "POST", url, headers=headers, data=json.dumps(payload))
-
-    loanID = json.loads(response.text.encode('utf8'))['loanAccount']['encodedKey']
-    return {'loanID':str(loanID)}
+    print(response.text.encode('utf8'))
+    loanID = json.loads(response.text.encode('utf8'))
+    if 'loanAccount' in loanID.keys():
+        loanID = loanID['loanAccount']['encodedKey']
+        return {'loanID':str(loanID)}
+    return {'loanID': 'None'}
 
 def get_meta_score():
     jackie = {"dota2": "122272960",
@@ -140,6 +145,12 @@ def get_meta_score():
           "lol": "XofAEbbZ2in_MtKIeX-mvDj1HjG4QG8US6t7jF_PqtXBxWg"
           }
     return score_generator(jackie)['metascore']
+
+
+def get_interest(metascore):
+    max_interest=5
+    min_interest=0.5
+    return (1 - metascore) * (max_interest - min_interest) + min_interest
 
 
 

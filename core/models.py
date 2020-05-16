@@ -16,6 +16,6 @@ class CurrentAccount(models.Model):
 class LoanAccount(models.Model):
     user = models.ForeignKey(get_user_model(),on_delete=models.CASCADE)
     loanID = models.CharField(max_length=255,blank=True)
-    interestRate  = models.FloatField(blank=True)
+    amount  = models.FloatField(blank=True)
     loanName =models.CharField(max_length=255,blank=True)
     objects = models.Manager()

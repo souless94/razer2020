@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect
 from core import helpers
 from powerup.forms import CurrentAccountForm, LoanAccountForm
 from core.models import CurrentAccount, LoanAccount, YouthBankUser
-from core.helpers import create_loan_account , get_meta_score
+from core.helpers import create_loan_account, get_interest, get_meta_score
 
 
 
@@ -76,8 +76,9 @@ def createCurrentAccount(request):
 def loanAccountView(request):
     the_form = LoanAccountForm()
     the_data = LoanAccount.objects.filter(user=request.user).all()
-    score = get_meta_score()
-    context = {'the_data':the_data,'the_score':score,'the_form' : the_form}
+    score = round(get_meta_score(),5)
+    interest = round(get_interest(score),5)
+    context = {'the_data':the_data,'the_interest':interest,'the_score':score,'the_form' : the_form}
     return render(request, 'loan.html',context)
 
 @login_required(login_url='/login/')
@@ -91,7 +92,10 @@ def createLoanAccount(request):
         youth_user_data = YouthBankUser.objects.filter(user=request.user)
         clientID= youth_user_data.values('clientID')[0]['clientID']
         assigned_branchkey= youth_user_data.values('assigned_branchkey')[0]['assigned_branchkey']
-        loanID = create_loan_account(clientID,assigned_branchkey)['loanID']
+        score = round(get_meta_score(),5)
+        interest = round(get_interest(score),5)
+        params =  {'loanAmount': user_form.amount ,'loanName':user_form.loanName,'interestRate':str(interest)}
+        loanID = create_loan_account(clientID,assigned_branchkey,params)['loanID']
         user_form.loanID = loanID
         user_form.save()
     return redirect('/loan/')

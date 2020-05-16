@@ -60,17 +60,16 @@
                     </div>
                     <br>
                     {% for account in the_data %}
-                        <p><label><b>loanID</b></label> {{ account.loanID }}</p>
-                        <p><label><b>interest Rate</b></label> {{ account.interestRate }}</p>
-                        <p><label><b>loan Name</b></label> {{ account.loanName }}</p>
-                        <p><label><b>principal Collected</b></label></p>
+                        <p><label><b>loanID : </b></label> {{ account.loanID }}</p>
+                        <p><label><b>loan Amount : </b></label> {{ account.amount }}</p>
+                        <p><label><b>loan Name : </b></label> {{ account.loanName }}</p>
+                        <p><label><b>interest Rate : </b></label> {{ the_interest}}% p.a</p>
                         <p>-------------------------------------------</p>
                     {% endfor %}
                 
                     <form class="form" action="/create_loan/" method="POST">
                         {% csrf_token %}
                         {{ the_form | crispy}}
-                        <input type="text" class="form-control" >
                         <input class="btn btn-outline-primary" type="submit" value="Get Loan">
                         </form>
 
