@@ -24,7 +24,7 @@ def create_client():
                 "issuingAuthority": "Immigration Authority of Singapore",
                 "documentType": "NRIC/Passport Number",
                 "validUntil": "2021-09-12",
-                "documentId": "S98142334A"
+                "documentId": "S9814234A"
             }
         ],
         "addresses": [],
