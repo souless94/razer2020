@@ -49,6 +49,7 @@ def create_client():
     }
     response = requests.request(
         "POST", url, headers=headers, data=json.dumps(payload))
+    print(response.text.encode('utf8'))
     clientID = json.loads(response.text.encode('utf8'))
     if 'client' in clientID.keys() :
         clientID = clientID['client']['encodedKey']
@@ -90,6 +91,7 @@ def create_current_account(clientID):
     response = requests.request(
         "POST", url, headers=headers, data=json.dumps(payload))
     accountID = json.loads(response.text.encode('utf8'))
+    print(response.text.encode('utf8'))
     if "savingsAccount" in accountID.keys():
         accountID = accountID['savingsAccount']['encodedKey']
         return {'accountID':str(accountID)}
@@ -122,7 +124,6 @@ def create_loan_account(clientID,assigned_branchkey,params):
         }
     }
     }
-    print(payload)
     headers = {
     'Content-Type': 'application/json',
     'Authorization': 'Basic VGVhbTU5OnBhc3M3MUE5OTUxQkY=',
