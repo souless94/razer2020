@@ -54,9 +54,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action active top-div">Welcome John</a>
+                <a href="#" class="list-group-item list-group-item-action active top-div">Hey Tim</a>
                     <div class="list-group-item link-box">
-                        <small>your rating is {{ the_score }} </small>
+                        <h5>Your PowerUp Rating is {{ the_score }} </h5>
                     </div>
                     <br>
                     {% for account in the_data %}
@@ -70,13 +70,13 @@
                     <form class="form" action="/create_loan/" method="POST">
                         {% csrf_token %}
                         {{ the_form | crispy}}
-                        <input class="btn btn-outline-primary" type="submit" value="Get Loan">
+                        <input class="btn btn-outline-primary" type="submit" value="I agree to get this loan">
                         </form>
 
                 </div>
                 <br>
                 <div class="list-group-item justify-content-between">
-                        <img class="icon_img" src="{% static 'img/dotaLogo.png' %}">              Back
+                        Back
                         <a class="last-item-dota" href="/main/">></a>
                     </div>  
                 

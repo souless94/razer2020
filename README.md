@@ -9,6 +9,7 @@ The repo contains:
 
 * README.md - this file
 * ebdjando - Django configuration files for the front- and back-end
+* metascorer - test notebooks for calling game publishers' API and metascore building
 * powerup - Django project files
 * manage.py - script to start the Django app files
 
@@ -27,6 +28,8 @@ Files provided by the AWS CodeStar platform (copied)
 App URL
 -------
 
-**[IMPORTANT] Best viewed on Chrome's inspect tool, with iPhone X view (375px x 812px) (sorry we wanted to replicate the experience of the Razer app). It works really well when you inspect it with the iPhone X view**
+**[IMPORTANT] Best viewed on Chrome's inspect tool, with iPhone X view (375px x 812px) (sorry we wanted to replicate the experience of the Razer app).
 <br>
-http://razerhack2020app.eba-hfdvvvci.ap-southeast-1.elasticbeanstalk.com/
+It works really well when you inspect it with the iPhone X view**
+<br>
+http://razer2020app.eba-ppfnb2xn.ap-southeast-1.elasticbeanstalk.com/

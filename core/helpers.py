@@ -143,7 +143,8 @@ def create_loan_account(clientID,assigned_branchkey,params):
 def get_meta_score():
     jackie = {"dota2": "122272960",
           "pubg": "WackyJacky101",
-          "lol": "XofAEbbZ2in_MtKIeX-mvDj1HjG4QG8US6t7jF_PqtXBxWg"
+          "lol": "XofAEbbZ2in_MtKIeX-mvDj1HjG4QG8US6t7jF_PqtXBxWg",
+          "fortnite": "4735ce9132924caf8a5b17789b40f79c"
           }
     return score_generator(jackie)['metascore']
 
