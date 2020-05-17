@@ -138,7 +138,7 @@ def create_loan_account(clientID,assigned_branchkey,params):
     if 'loanAccount' in loanID.keys():
         loanID = loanID['loanAccount']['encodedKey']
         return {'loanID':str(loanID)}
-    return {'loanID': 'None'}
+    return {'loanID': 'Rejected : Need Loan in [$100, $20000]'}
 
 def get_meta_score():
     jackie = {"dota2": "122272960",
