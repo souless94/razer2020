@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # don't forget to refresh lol key
-lol_key = 'RGAPI-7046925d-57cf-4d1a-ad54-7d7886243358'
+lol_key = 'RGAPI-d3798be0-998a-4f86-8f9c-ac86e8f89698'
 dota_key = '76b62706-1c6f-4e06-b7a6-bcc5523073cf'
 fortnite_key = '8954ce57-a687c6b7-93e484e5-e0fd7193'
 pubg_key = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIzMTY4MmVhMC03OTE0LTAxMzgtYWYyNi0wMDNiMDE4NjQ5MzkiLCJpc3MiOiJnYW1lbG9ja2VyIiwiaWF0IjoxNTg5NTcyNjMzLCJwdWIiOiJibHVlaG9sZSIsInRpdGxlIjoicHViZyIsImFwcCI6ImphY2tpZS11cGxldmVsIn0.6LixccqXITLvrQFT6S-Np7ofo82ZUbSaqul8f8UkERk'
