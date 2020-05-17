@@ -35,11 +35,12 @@ def loginView(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            client_user = helpers.create_client()
-            
-            user = YouthBankUser.objects.create(
-                user=user, clientID=client_user['clientID'], assigned_branchkey=client_user['assigned_branchkey'])
-            user.save()
+            does_user_exists = YouthBankUser.objects.filter(user=user).count()
+            if (does_user_exists == 0 ):
+                client_user = helpers.create_client( user.first_name, user.last_name )
+                user = YouthBankUser.objects.create(
+                    user=user,clientID=client_user['clientID'], assigned_branchkey=client_user['assigned_branchkey'])
+                user.save()
             return redirect('/main/')
     else:
         form = AuthenticationForm()

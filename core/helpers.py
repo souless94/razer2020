@@ -8,12 +8,12 @@ baseUrl = 'http://razerhackathon2app.eba-3mgtrpdc.ap-southeast-1.elasticbeanstal
 
 
 
-def create_client():
+def create_client(firstname,lastname):
     url = "https://razerhackathon.sandbox.mambu.com/api/clients"
     payload = {
         "client": {
-            "firstName": "Celeste",
-            "lastName": "Goh",
+            "firstName": firstname,
+            "lastName": lastname,
             "preferredLanguage": "ENGLISH",
             "notes": "Enjoys playing RPG",
             "assignedBranchKey": "8a8e878e71c7a4d70171ca62fe0f1244"
